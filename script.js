@@ -24,6 +24,7 @@ function dynamic_url_maker(){
 	var check_url=dynamicUrl.replace(/ /g,'');
 	if(check_url==''){
 		show_snackbar(0);
+		return "error_link";
 	}
 	else{
 	var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
