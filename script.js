@@ -10,12 +10,14 @@ $("#login-button").click(function(event){
 });
 
 function make_box(){
+document.getElementById("hlp_").innerText="Account Type\nYou must login to Instagram";
 document.getElementById('private_').style.visibility="visible";
 $("#private_").fadeIn('fast');
 show_snackbar(1);
 }
 
 function fade_in(){
+	document.getElementById("hlp_").innerText="Account Type";
 	$("#private_").fadeOut('fast');
 }
 
