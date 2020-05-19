@@ -12,6 +12,7 @@ $("#login-button").click(function(event){
 function make_box(){
 document.getElementById('private_').style.visibility="visible";
 $("#private_").fadeIn('fast');
+show_snackbar(1);
 }
 
 function fade_in(){
@@ -22,12 +23,12 @@ function dynamic_url_maker(){
 	var dynamicUrl = document.getElementById("link_").value;
 	var check_url=dynamicUrl.replace(/ /g,'');
 	if(check_url==''){
-		show_snackbar();
+		show_snackbar(0);
 	}
 	else{
 	var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
 	if (!re.test(check_url)) { 
-		show_snackbar();
+		show_snackbar(0);
 		return "error_link";
 	}
 	var n=dynamicUrl.split('');
@@ -50,7 +51,7 @@ function dynamic_url_maker(){
 function open_json(){
 durl=dynamic_url_maker();
 if(durl!="error_link"){
-window.open(durl,"blank");
+window.open(durl,"_blank");
 window.focus();
 }
 }
@@ -79,13 +80,15 @@ function do_that(){
 	}
 
 }
-function show_snackbar() {
-	// Get the snackbar DIV
+function show_snackbar(response_) {
 	var x = document.getElementById("snackbar");
-  
-	// Add the "show" class to DIV
+	if (response_==1){
+		x.innerText="Login Instagram.com \n to Download Private Videos";
+	}
+	else{
+		x.innerText="Invalid Link";
+	}
 	x.className = "show";
-  
-	// After 3 seconds, remove the show class from DIV
+
 	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
