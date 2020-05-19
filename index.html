@@ -6,16 +6,6 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="favicon.png" type="image/gif" sizes="16x16">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127745150-5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-127745150-5');
-</script>
-
 </head>
 <body>
 <div class="wrapper">
@@ -23,14 +13,24 @@
 		<h1 style="font-weight: bold;">Insta Video Downloader</h1>
 		<p> Download both Public and Private Instagram Videos</p> 
 		<form class="form">
-			<label class="radio-inline">
-				<input class="radio" type="radio" name="optradio" value="0" style="margin-right: 10px;" onclick="fade_in()" checked>Public
-			  </label>
-			  <label class="radio-inline">
-				<input class="radio" type="radio" name="optradio" value="1" onclick="make_box()">Private
-			  </label>
-			</br>
-			</br>
+				<input class="checkbox" type="checkbox" name="general" id="general">
+						<label class="for-checkbox" for="general"></label>
+							<div class="col-12 pt-5">
+								<p class="mb-4 pb-2">Account Type</p>
+							</div>
+							<br>
+							<div class="col-12 pb-5">
+								<input class="checkbox-tools" type="radio" name="optradio" id="tool-1" value="0" onclick="fade_in()" checked>
+								<label class="for-checkbox-tools" for="tool-1">
+									Public
+								</label><!--
+								--><input class="checkbox-tools" type="radio" name="optradio" value="1" onclick="make_box()" id="tool-2">
+								<label class="for-checkbox-tools" for="tool-2">
+									Private
+								</label>
+							
+							</div>
+						
 			<input id="link_" type="text" placeholder="Paste Video Link" autocomplete="off" >
 			<div id="private_" style="visibility: hidden;">
 			<p>Click the button below<br> It will open a new page <br> Copy all the text from that page</p>
