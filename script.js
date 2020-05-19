@@ -51,6 +51,7 @@ function open_json(){
 durl=dynamic_url_maker();
 if(durl!="error_link"){
 window.open(durl,"blank");
+window.focus();
 }
 }
 function do_that(){
