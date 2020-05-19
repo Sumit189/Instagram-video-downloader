@@ -11,9 +11,25 @@
 <div class="wrapper">
 	<div class="container">
 		<h1 style="font-weight: bold;">Insta Video Downloader</h1>
-		<p>Download Public Instagram Videos</p>
+		<p> Download both Public and Private Instagram Videos</p> 
 		<form class="form">
-			<input id="link_" type="text" placeholder="Paste Video Link" autocomplete="off">
+			<label class="radio-inline">
+				<input class="radio" type="radio" name="optradio" value="0" style="margin-right: 10px;" onclick="fade_in()" checked>Public
+			  </label>
+			  <label class="radio-inline">
+				<input class="radio" type="radio" name="optradio" value="1" onclick="make_box()">Private
+			  </label>
+			</br>
+			</br>
+			<input id="link_" type="text" placeholder="Paste Video Link" autocomplete="off" >
+			<div id="private_" style="visibility: hidden;">
+			<p>Click the button below<br> It will open a new page <br> Copy all the text from that page</p>
+			<button id="open_link" type="button" onclick="open_json()">Open Link</button>
+			<br>
+			<br>
+			<p> Paste the text copied from above link</p>
+			<input id="json_" type="text" placeholder="Paste Copied Text" autocomplete="off"> 
+		</div>
 			<button type="submit" id="login-button">Download</button>
 			
 		</form>
@@ -32,8 +48,10 @@
 		<li></li>
 	</ul>
 </div>
+<div id="snackbar">Invalid Link</div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="./script.js"></script>
 
 </body>
 </html>
