@@ -1,8 +1,3 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./pwabuilder-sw/pwabuilder-sw.js');
-  });
-}
 $(document).ready(function(){
 $("#private_").fadeOut('fast');
 });
