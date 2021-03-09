@@ -1,3 +1,12 @@
+window.onload = () => {
+  'use strict';
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('./sw.js');
+  }
+}
+
 $(document).ready(function(){
 $("#private_").fadeOut('fast');
 });
@@ -8,6 +17,8 @@ $("#login-button").click(function(event){
 		 $("")
 	 	 do_that();
 });
+
+
 
 function make_box(){
 document.getElementById('private_').style.visibility="visible";
