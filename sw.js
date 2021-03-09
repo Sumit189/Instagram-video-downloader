@@ -1,4 +1,4 @@
-var cacheName = instavid-pwa';
+var cacheName = 'instavid-pwa';
 var filesToCache = [
   '/',
   '/index.html',
