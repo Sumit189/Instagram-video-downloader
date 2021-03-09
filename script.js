@@ -7,9 +7,13 @@ window.onload = () => {
   }
 }
 
-$(document).ready(function(){
-$("#private_").fadeOut('fast');
-});
+
+//uncomment when public mode is ready to deploy
+ $(document).ready(function(){
+// $("#private_").fadeOut('fast');
+	//comment for both
+	make_box();
+ });
 
 
 $("#login-button").click(function(event){
@@ -26,9 +30,9 @@ $("#private_").fadeIn('fast');
 show_snackbar(1);
 }
 
-function fade_in(){
-	$("#private_").fadeOut('fast');
-}
+// function fade_in(){
+// 	$("#private_").fadeOut('fast');
+// }
 
 function dynamic_url_maker(){
 	var dynamicUrl = document.getElementById("link_").value;
@@ -66,11 +70,12 @@ window.open(durl,"_blank");
 window.focus();
 }
 }
+
 function do_that(){
 	var pub_pri=$('input[name="optradio"]:checked').val();
 	if(pub_pri==0){
 		dynamicUrl=dynamic_url_maker();
-		$.getJSON(dynamicUrl, function(data) {
+		$.getJSON("https://cloudflare.com/"+dynamicUrl, function(data) {
 			window.open(data.graphql.shortcode_media.video_url,"_self");
 		  });
 	}

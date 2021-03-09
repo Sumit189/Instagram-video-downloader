@@ -13,6 +13,7 @@
   <meta name="apple-mobile-web-app-title" content="Insta Vid">
   <meta name="msapplication-TileImage" content="images/instavid-144.png">
   <meta name="msapplication-TileColor" content="#FFFFFF">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script
 </head>
 <body>
 <div class="wrapper">
@@ -27,15 +28,22 @@
 							</div>
 							<br>
 							<div class="col-12 pb-5">
-								<input class="checkbox-tools" type="radio" name="optradio" id="tool-1" value="0" onclick="fade_in()" checked>
+								<!-- Button for Both methods -->
+								<!-- <!-- <input class="checkbox-tools" type="radio" name="optradio" id="tool-1" value="0" onclick="fade_in()" checked>
 								<label class="for-checkbox-tools" for="tool-1">
 									Public
-								</label><!--
-								--><input class="checkbox-tools" type="radio" name="optradio" value="1" onclick="make_box()" id="tool-2">
+								</label> -->
+
+								<!-- <input class="checkbox-tools" type="radio" name="optradio" value="1" onclick="make_box()" id="tool-2">
 								<label class="for-checkbox-tools" for="tool-2">
 									Private
+								</label> -->
+
+								<!-- Temporary -->
+								<input class="checkbox-tools" type="radio" name="optradio" value="1" onclick="make_box()" id="tool-2" checked>
+								<label class="for-checkbox-tools" for="tool-2">
+										Any
 								</label>
-							
 							</div>
 						
 			<input id="link_" type="text" placeholder="Paste Video Link" autocomplete="off" >
