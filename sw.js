@@ -1,9 +1,9 @@
 var cacheName = 'instavid-pwa';
 var filesToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/script.js'
+  './',
+  './index.html',
+  './style.css',
+  './script.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
