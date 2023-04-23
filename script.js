@@ -82,7 +82,12 @@ function do_that(){
 	else{
 		let data = document.getElementById('json_').value;
 		let jsonData = JSON.parse(data);
-		let videoURL = jsonData?.graphql?.shortcode_media?.video_url
+		let videoURL;
+		if (data.startsWith('{"graphql"')) {
+			videoURL = jsonData?.graphql?.shortcode_media?.video_url
+		} else if(data.startsWith('{"items"')) {
+			videoURL = jsonData?.items?.[0]?.video_versions?.[0]?.url
+		}
 		if (videoURL) {
 			window.open(videoURL,"_self");
 		}
