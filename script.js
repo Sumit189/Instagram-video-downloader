@@ -59,16 +59,16 @@ function dynamic_url_maker(){
 			break;
 		}
 	}
-	dynamicUrl=dynamic_url+'?__a=1';
+	dynamicUrl=dynamic_url+'?__a=1&__d=dis';
 	return dynamicUrl;
 }
 }
 function open_json(){
-durl=dynamic_url_maker();
-if(durl!="error_link"){
-window.open(durl,"_blank");
-window.focus();
-}
+	durl=dynamic_url_maker();
+	if(durl!="error_link"){
+		window.open(durl,"_blank");
+		window.focus();
+	}
 }
 
 function do_that(){
@@ -81,20 +81,10 @@ function do_that(){
 	}
 	else{
 		data=document.getElementById('json_').value;
-		var string_=String(data);
-		var n = string_.search("video_url");
-		n+=11;
-		var data_="";
-		for(var i=n;i<string_.length;i++){
-			if (string_[i]==','){
-				break;
-			}
-			data_+=string_[i];
-			data_=data_.replace(/\"/g, '');
-		}
-		window.open(data_,"_self");
+		let jsonData = JSON.parse(data);
+		let videoURL = jsonData.video_versions[0]?.url
+		window.open(videoURL,"_self");
 	}
-
 }
 function show_snackbar(response_) {
 	var x = document.getElementById("snackbar");
