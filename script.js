@@ -83,10 +83,12 @@ function do_that(){
 		let data = document.getElementById('json_').value;
 		let jsonData = JSON.parse(data);
 		let videoURL;
-		if (data.startsWith('{"graphql"')) {
+		if (data.toString().startsWith('{"graphql"')) {
 			videoURL = jsonData?.graphql?.shortcode_media?.video_url
-		} else if(data.startsWith('{"items"')) {
+		} else if(data.toString().startsWith('{"items"')) {
 			videoURL = jsonData?.items?.[0]?.video_versions?.[0]?.url
+		} else {
+			show_snackbar(2);
 		}
 		if (videoURL) {
 			window.open(videoURL,"_self");
@@ -97,6 +99,8 @@ function show_snackbar(response_) {
 	var x = document.getElementById("snackbar");
 	if (response_==1){
 		x.innerText="Login Instagram.com \n to Download Private Videos";
+	} else if(response_ === 2) {
+		x.innerText = "Error in Pasted Data"
 	}
 	else{
 		x.innerText="Invalid Link";
