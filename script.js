@@ -35,21 +35,21 @@ show_snackbar(1);
 // }
 
 function dynamic_url_maker(){
-	var dynamicUrl = document.getElementById("link_").value;
-	var check_url=dynamicUrl.replace(/ /g,'');
-	if(check_url==''){
+	let dynamicUrl = document.getElementById("link_").value;
+	const check_url = dynamicUrl.replace(/ /g,'');
+	if(check_url === ''){
 		show_snackbar(0);
 	}
 	else{
-	var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+	const re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
 	if (!re.test(check_url)) { 
 		show_snackbar(0);
 		return "error_link";
 	}
-	var n=dynamicUrl.split('');
-	var dynamic_url="";
-	var slash=0;
-	var i;
+	let n=dynamicUrl.split('');
+	let dynamic_url="";
+	let slash=0;
+	let i;
 	for(i=0;i<n.length;i++){
 		if(n[i]=='/'){
 			slash+=1
@@ -72,18 +72,20 @@ function open_json(){
 }
 
 function do_that(){
-	var pub_pri=$('input[name="optradio"]:checked').val();
-	if(pub_pri==0){
+	const pub_pri=$('input[name="optradio"]:checked').val();
+	if(pub_pri === 0){
 		dynamicUrl=dynamic_url_maker();
 		$.getJSON("https://cloudflare.com/"+dynamicUrl, function(data) {
 			window.open(data.graphql.shortcode_media.video_url,"_self");
 		  });
 	}
 	else{
-		data=document.getElementById('json_').value;
+		let data = document.getElementById('json_').value;
 		let jsonData = JSON.parse(data);
-		let videoURL = jsonData.video_versions[0]?.url
-		window.open(videoURL,"_self");
+		let videoURL = jsonData?.graphql?.shortcode_media?.video_url
+		if (videoURL) {
+			window.open(videoURL,"_self");
+		}
 	}
 }
 function show_snackbar(response_) {
