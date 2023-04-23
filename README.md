@@ -1,3 +1,5 @@
+# Status
+![status](https://badgen.net/badge/status/working/green?icon=git)
 # Instagram-video-downloader
 Download Public and Private instagram videos and Reels in just 3 steps.
 [Click here for web app.](https://sumit189.github.io/Instagram-video-downloader/)
